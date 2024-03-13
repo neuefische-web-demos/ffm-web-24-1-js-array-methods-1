@@ -80,3 +80,27 @@ const games = [
       "Have you heard of the Extreme Laser Cats From Jupiter? Of course you have! Unfortunately, they have decided to attack earth. The Apocalypse is upon us - and it's very cute.",
   },
 ];
+
+// forEach()  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach?retiredLocale=de✨
+games.forEach((game) => {
+  const card = document.createElement('article');
+
+  const headline = document.createElement('h2');
+  headline.textContent = game.name;
+
+  const description = document.createElement('p');
+  description.textContent = game.description;
+
+  card.append(headline, description);
+  document.body.append(card);
+});
+
+// map() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+const upperCaseLetterGameNames = games.map((game) => {
+  return game.name.toUpperCase();
+});
+
+// filter() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter?retiredLocale=de
+const upperCaseNamesOfGamesBefore2000 = games
+  .filter((game) => game.publishingYear < 2000)
+  .map((game) => game.name.toUpperCase());
